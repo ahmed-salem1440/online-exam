@@ -1,0 +1,24 @@
+<h2>Verify OTP Code</h2>
+<div class="card p-4 mt-5">
+    <form [formGroup]="otpForm" (ngSubmit)="onSubmit()" class="p-fluid">
+      
+      <!-- Email Field -->
+
+    <div class="card flex justify-content-center">
+        <p-inputOtp formControlName="resetCode" [length]="6" [integerOnly]="true" />
+    </div>
+
+      <small *ngIf="isError" class="p-error ">{{errorMsg}}</small>
+      <!-- Submit Button -->
+
+
+      <button
+        pButton
+        type="submit"
+        label="Verify"
+        class="p-button-primary mt-3"
+        [disabled]="otpForm.invalid"
+      ></button>
+    </form>
+  </div>
+  

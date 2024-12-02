@@ -1,0 +1,116 @@
+<h2>Sign up</h2>
+<div class="card p-4 mt-5">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="p-fluid">
+      
+      <!-- Username Field -->
+      <div class="field mb-3">
+        <input
+          type="text"
+          pInputText
+          formControlName="username"
+          placeholder="Username"
+          [class.ng-invalid]="isFieldInvalid('username')"
+          [class.ng-dirty]="isFieldDirty('username')"
+        />
+        <small *ngIf="isFieldInvalid('username')" class="p-error">Username is required and must be 4-25 characters and contain only letters..</small>
+      </div>
+  
+      <!-- First Name Field -->
+      <div class="field mb-3">
+        <input
+          type="text"
+          pInputText
+          formControlName="firstName"
+          placeholder="First Name"
+          [class.ng-invalid]="isFieldInvalid('firstName')"
+          [class.ng-dirty]="isFieldDirty('firstName')"
+        />
+        <small *ngIf="isFieldInvalid('firstName')" class="p-error">First name is required and must contain only letters.</small>
+      </div>
+  
+      <!-- Last Name Field -->
+      <div class="field mb-3">
+        <input
+          type="text"
+          pInputText
+          formControlName="lastName"
+          placeholder="Last Name"
+          [class.ng-invalid]="isFieldInvalid('lastName')"
+          [class.ng-dirty]="isFieldDirty('lastName')"
+        />
+        <small *ngIf="isFieldInvalid('lastName')" class="p-error">Last name is required and must contain only letters.</small>
+      </div>
+  
+      <!-- Email Field -->
+      <div class="field mb-3">
+        <input
+          type="email"
+          pInputText
+          formControlName="email"
+          placeholder="Email"
+          [class.ng-invalid]="isFieldInvalid('email')"
+          [class.ng-dirty]="isFieldDirty('email')"
+        />
+        <small *ngIf="isFieldInvalid('email')" class="p-error">Email is required, Please enter a valid email.</small>
+      </div>
+  
+      <!-- Password Field -->
+      <div class="field mb-3">
+      <p-password 
+      formControlName="password"
+      
+      placeholder="Password"
+      [class.ng-invalid]="isFieldInvalid('password')"
+      [class.ng-dirty]="isFieldDirty('password')"
+      [toggleMask]="true"
+      promptLabel="Choose a password"
+    weakLabel="Too simple" 
+    mediumLabel="Average complexity" 
+    strongLabel="Complex password"
+      />
+   
+    <small *ngIf="isFieldInvalid('password')" class="p-error">
+        Password must contain at least one uppercase letter, one lowercase letter, one digit, one special character, and be at least 8 characters long.
+    </small>
+      </div>
+  
+      <!-- Re-Password Field -->
+      <div class="field mb-3">
+        <p-password 
+          formControlName="rePassword"
+          feedback="false"
+          placeholder="Confirm Password"
+          [class.ng-invalid]="isFieldInvalid('rePassword')"
+          [class.ng-dirty]="isFieldDirty('rePassword')"
+          [toggleMask]="true"
+        />
+        <small *ngIf="isFieldInvalid('rePassword')" class="p-error">
+          Re-password is required and must match the password.
+        </small>
+      </div>
+  
+      <!-- Phone Field -->
+      <div class="field mb-3">
+        <input
+          type="text"
+          pInputText
+          formControlName="phone"
+          placeholder="Phone Number"
+          [class.ng-invalid]="isFieldInvalid('phone')"
+          [class.ng-dirty]="isFieldDirty('phone')"
+        />
+        <small *ngIf="isFieldInvalid('phone')" class="p-error">Please enter a valid Egyptian phone number. The number should start with 01, followed by 0, 1, 2, or 5, and have 8 digits.
+        </small>
+      </div>
+      <small *ngIf="isError" class="p-error ">{{errorMsg}}</small>
+      <!-- Submit Button -->
+      <button
+        pButton
+        type="submit"
+        label="Create Account"
+        class="p-button-primary mt-3"
+        [disabled]="registrationForm.invalid"
+      ></button>
+    </form>
+  </div>
+  

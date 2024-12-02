@@ -1,0 +1,11 @@
+{
+  "routes": [
+    "/auth",
+    "/auth/forget-password",
+    "/auth/login",
+    "/auth/register",
+    "/auth/reset-password",
+    "/auth/verify-otp",
+    "/home"
+  ]
+}

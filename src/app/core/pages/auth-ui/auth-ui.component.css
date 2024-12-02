@@ -1,0 +1,16 @@
+.Welcome{
+    font-size:50px;
+    margin-bottom:0 ;
+}
+.elevate{
+    color:#122D9C;
+    font-size: 60px;
+}
+
+.bg-secondary{
+    background-color: var(--secondary-color);
+}
+
+.bg-white{
+    background-color: white;
+}
